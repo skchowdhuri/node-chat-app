@@ -2,13 +2,21 @@
 <html>
 <head>
 <title>Page Title</title>
-<script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <script src="js/index.js"></script>
+<h2>Welcome to chat box</h2>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<ol id="message">
 
+</ol>
+
+<form id="message-form">
+    <input type="text" name="message" placeholder="Type your message">
+    <input type="submit" value="submit">
+</form>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="./js/libs/jquery-3.3.1.min.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

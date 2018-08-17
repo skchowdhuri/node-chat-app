@@ -8,10 +8,21 @@ socket.on('disconnect', function(){
 socket.on('newEmail',(email)=>{
     console.log(email);
 });
-socket.emit('createMeassage',{
-    name: 'Sagor Serv',
-    email: 'ss@gmail.com'
-});
+// socket.emit('createMessage',{
+//     from: 'Sagor Serv',
+//     text: 'ss@gmail.com'
+// });
 socket.on('newMessage',(message)=>{
     console.log('Message', message);
-})
+    var li=$('<li></li>');
+    li.text(`${message.from} : ${message.text}`);
+    $('#message').append(li);
+});
+
+$( "#message-form" ).submit(function( event ) {
+    event.preventDefault();
+    socket.emit('createMessage', {
+        from: 'User',
+        text: jQuery('[name=message]').val()
+    });
+});
