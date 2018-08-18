@@ -19,7 +19,7 @@ app.use(express.static(publicDir));
 io.on('connection',(socket)=>{
 
     //create at the time of connect
-    socket.emit('newMessage', generateMessage('Admin', 'Welcome user'));
+    socket.emit('newMessage', generateMessage('Admin', 'Welcome user from "Sagor"'));
     socket.broadcast.emit('newMessage',generateMessage('Admin','New user added'));
     console.log('New user connected');
     socket.emit('newEmail',{
