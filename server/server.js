@@ -6,7 +6,7 @@ const http=require('http');
 const socketIO=require('socket.io');
 
 //generalImport
-var {generateMessage}=require('./utils/message')
+var {generateMessage,generateLocationMessage}=require('./utils/message')
 
 const port=process.env.PORT || 3000;
 
@@ -34,6 +34,9 @@ io.on('connection',(socket)=>{
     socket.on('disconnect', function(){
         console.log('User Disconnected');
     });
+    socket.on('sendLocationInfo', (location)=>{
+        io.emit('newLocationMessage', generateLocationMessage('Admin',location.lat,location.lng));
+    })
 });
 server.listen(port,()=>{
     console.log(`server is up on ${port}`);
