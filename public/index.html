@@ -11,7 +11,7 @@
     <div id="users"></div>
 </div>
 <div class="caht__main">
-    <ol id="message" class="chat__message">
+    <ol id="messages" class="chat__message">
 
     </ol>
     <div class="chat__footer fixed-bottom">
@@ -22,10 +22,32 @@
         <button id="send-location">Send Location</button>
     </div>
 </div>
+<script id="template" type="text/template">
+    <li class="message">
+        <div class="message__title">
+            <h4>{{from}}</h4>
+            <span>{{createdAt}}</span>
+        </div>
+        <div class="message__body">
+            <p>{{text}}</p>
+        </div>
+    </li>
+</script>
+<script id="location-template" type="text/template">
+    <li class="message">
+        <div class="message__title">
+            <h4>{{from}}</h4>
+            <span>{{createdAt}}</span>
+        </div>
+        <div class="message__body">
+            <p><a href="{{url}}" target="_blank">Current Location</a></p>
+        </div>
+    </li>
+</script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="./js/libs/jquery-3.3.1.min.js"></script>
 <script src="./js/libs/moment.js"></script>
-
+<script src="./js/libs/mustache.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>
