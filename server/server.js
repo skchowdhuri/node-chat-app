@@ -26,10 +26,10 @@ io.on('connection',(socket)=>{
         name: 'Sagor',
         email: 'hh@gmail.com'
     });
-    socket.on('createMessage',(message)=>{
+    socket.on('createMessage',(message, callback)=>{
         console.log('message',message);
         io.emit('newMessage',generateMessage(message.from, message.text));
-        //callback();
+        callback();
     });
     socket.on('disconnect', function(){
         console.log('User Disconnected');
